@@ -25,6 +25,7 @@ $max = (!isset($obj->forecasts[0]->temperature->max->celsius) || is_null($obj->f
 $min = (!isset($obj->forecasts[0]->temperature->min->celsius) || is_null($obj->forecasts[0]->temperature->min->celsius)) ?
 	'-' : $obj->forecasts[0]->temperature->min->celsius ;
 print <<< DOC_END
+<br/>
 <p>$title</p>
 <img id="forecast-image" src=$img border="0" hegiht="$img_height" width="$img_width"><br>
 $max / $min
