@@ -1,29 +1,30 @@
 <?php
-# 天気情報をLivedoor 天気から取得、整形
+// 天気情報をLivedoor 天気から取得、整形
+$base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
+$S_AD = $_SERVER ['SERVER_ADDR'];
+$R_AD = $_SERVER ['REMOTE_ADDR'];
 
-$base_url =
-"http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
+// ローカルじゃなかったら
+if (substr ( $S_AD, 0, mb_strrpos ( $S_AD, '.' ) ) == substr ( $R_AD, 0, mb_strrpos ( $R_AD, '.' ) )) {
+	// プロキシ設定部分を有効にする
+	$aContext = array (
+			'http' => array (
+					'proxy' => 'tcp://192.168.30.130:80/',
+					'request_fulluri' => true
+			)
+	);
+	stream_context_set_default ( $aContext );
+}
 
-// プロキシ環境で実行する場合は以下のプロキシ設定部分を有効にして（コメントアウトを外して）実行する
- $aContext = array(
-     'http' => array(
-         'proxy' => 'tcp://192.168.30.130:80/',
-         'request_fulluri' => true,
-     ),
- );
- stream_context_set_default($aContext);
-
-$json = file_get_contents($base_url, false);
-$obj = json_decode($json);
+$json = file_get_contents ( $base_url, false );
+$obj = json_decode ( $json );
 $title = $obj->title;
-$img = $obj->forecasts[0]->image->url;
+$img = $obj->forecasts [0]->image->url;
 $description = $obj->description->text;
-$img_width = $obj->forecasts[0]->image->width;
-$img_height = $obj->forecasts[0]->image->height;
-$max = (!isset($obj->forecasts[0]->temperature->max->celsius) || is_null($obj->forecasts[0]->temperature->max->celsius)) ?
-	'-' : $obj->forecasts[0]->temperature->max->celsius ;
-$min = (!isset($obj->forecasts[0]->temperature->min->celsius) || is_null($obj->forecasts[0]->temperature->min->celsius)) ?
-	'-' : $obj->forecasts[0]->temperature->min->celsius ;
+$img_width = $obj->forecasts [0]->image->width;
+$img_height = $obj->forecasts [0]->image->height;
+$max = (! isset ( $obj->forecasts [0]->temperature->max->celsius ) || is_null ( $obj->forecasts [0]->temperature->max->celsius )) ? '-' : $obj->forecasts [0]->temperature->max->celsius;
+$min = (! isset ( $obj->forecasts [0]->temperature->min->celsius ) || is_null ( $obj->forecasts [0]->temperature->min->celsius )) ? '-' : $obj->forecasts [0]->temperature->min->celsius;
 print <<< DOC_END
 <br/>
 <p>$title</p>
