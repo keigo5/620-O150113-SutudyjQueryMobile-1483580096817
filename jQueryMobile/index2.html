@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css">
+<link rel="stylesheet" href="themes/greenTheme.css">
+<link rel="stylesheet" href="responsive.css">
+<title>Cafe Green.</title>
+</head>
+<body>
+	<div data-role="page" id="main">
+		<header data-role="header">
+			<h1>Cafe Green.</h1>
+			<nav data-role="navbar">
+				<ul>
+					<li class="ui-btn-active"><a href="index2.html">home</a></li>
+					<li><a href="menu.html">menu</a></li>
+					<li><a href="#contact">contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="contents" data-role="content">
+			<div class="main">
+				<p>
+					Cafe Green. は渋谷駅前にあるカフェです。<br> 当店自慢のコーヒーをお楽しみください。
+				</p>
+				<img
+					src="http://farm3.staticflickr.com/2079/2939337382_d7e1268752_b.jpg"
+					width="1024" height="683" alt="Café con leche - Milchkaffee (CC)">
+			</div>
+			<div class="sub">
+				<h1>アクセス</h1>
+				<p class="info">
+					〒150-0043 東京都渋谷区道玄坂1-1<br> 03-1234-5678<br> 9:00-24:00
+				</p>
+				<div class="map">
+					<iframe width="425" height="350" frameborder="0" scrolling="no"
+						marginheight="0" marginwidth="0"
+						src="https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=35.658273,139.700833(Cafe+Green.)&aq=&sll=35.658316,139.700845&sspn=0.002445,0.004823&gl=jp&brcurrent=3,0x60188cb2eb3108d1:0xf11cd9b2395b6677,0&ie=UTF8&t=m&ll=35.658273,139.700829&spn=0.003051,0.00456&z=17&iwloc=A&output=embed"></iframe>
+					<br />
+				</div>
+				<small><a
+					href="https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=35.658273,139.700833(Cafe+Green.)&aq=&sll=35.658316,139.700845&sspn=0.002445,0.004823&gl=jp&brcurrent=3,0x60188cb2eb3108d1:0xf11cd9b2395b6677,0&ie=UTF8&t=m&ll=35.658273,139.700829&spn=0.003051,0.00456&z=17&iwloc=A"
+					style="color: #0000FF; text-align: left">大きな地図で見る</a></small>
+				<div id="forecast"></div>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<h1>Cafe Green.</h1>
+			<nav data-role="navbar">
+				<ul>
+					<li class="ui-btn-active"><a href="index2.html">home</a></li>
+					<li><a href="menu.html">menu</a></li>
+					<li><a href="#contact">contact</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+
+	<div data-role="page" id="contact">
+		<header data-role="header">
+	       <h1>Cafe Green.</h1>
+		<nav data-role="navbar">
+	           <ul>
+	               <li><a href="index2.html">home</a></li>
+	               <li><a href="menu.html">menu</a></li>
+	               <li><a href="#contact">contact</a></li>
+	           </ul>
+	       </nav>
+	   </header>
+	   <div class="contents" data-role="content">
+	       <div class="main">
+	           <h1>お問い合わせ</h1>
+	           <img src="http://farm8.staticflickr.com/7091/6988157282_e62624f274.jpg" width="500" height="375" alt="Form 1040">
+	           <p>お気軽にお問い合わせください。</p>
+	           <form>
+	               <table>
+	                   <tr><th>お名前</th><td><input type="text" name="name"></td></tr>
+	                   <tr><th>郵便番号</th><td><input type="text" name="zip01" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');" pattern="[0-9\-]*"></td></tr>
+	                   <tr><th>住所（都道府県）</th><td><input type="text" name="pref01"></td></tr>
+	                   <tr><th>住所（市区町村）</th><td><input type="text" name="addr01"></td></tr>
+	                   <tr><th>住所（それ以降）</th><td><input type="text" name="addr02"></td></tr>
+	                   <tr><th>お問い合わせ内容</th><td><textarea name="content" rows="10" wrap="soft">（商品名・お問い合わせ内容をご記入ください）</textarea></td></tr>
+	               </table>
+	               <button class="css_btn_class" id="submit_form">Submit</button>
+	           </form>
+	       </div>
+	   </div>
+	<footer data-role="footer">
+	       <h1>Cafe Green.</h1>
+	       <nav data-role="navbar">
+	           <ul>
+	               <li><a href="index2.html">home</a></li>
+	               <li><a href="menu.html">menu</a></li>
+	               <li><a href="#contact">contact</a></li>
+	           </ul>
+	       </nav>
+	   </footer>
+	</div>
+
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="tenki.js"></script>
+	<script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js"></script>
+	<script src="verify.js"></script>
+</body>
+</html>
