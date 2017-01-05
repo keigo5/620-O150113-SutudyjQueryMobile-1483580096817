@@ -3,6 +3,10 @@
 $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
 $S_AD = $_SERVER ['SERVER_ADDR'];
 $R_AD = $_SERVER ['REMOTE_ADDR'];
+echo($S_AD);
+echo(substr ( $S_AD, 0, mb_strrpos ( $S_AD, '.' ) ));
+echo($R_AD);
+echo(substr ( $R_AD, 0, mb_strrpos ( $R_AD, '.' ) ));
 
 // ローカルじゃなかったら
 if (substr ( $S_AD, 0, mb_strrpos ( $S_AD, '.' ) ) == substr ( $R_AD, 0, mb_strrpos ( $R_AD, '.' ) )) {
